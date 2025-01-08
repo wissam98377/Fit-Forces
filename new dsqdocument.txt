@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Check Code</title>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap" rel="stylesheet">
+        <style>
+            body {
+                background-color: black;
+                color: white;
+                font-family: 'DM Serif Text', serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                flex-direction: column;
+            }
+            .input-container {
+                margin-bottom: 20px;
+                text-align: center;
+            }
+            .fake-message {
+                color: red;
+                font-size: 40px;
+                display: none;
+            }
+            .original-message {
+                color: green;
+                font-size: 40px;
+                display: none;
+            }
+            input {
+                font-family: 'DM Serif Text', serif;
+                font-size: 20px;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 20px; /* Add space between input fields */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="input-container">
+            <label for="serial-number">Please put the serial number:</label>
+            <br>
+            <input type="text" id="serial-number-1">
+            <br>
+            <input type="text" id="serial-number-2">
+            <br>
+            <button onclick="checkSerialNumber()">Submit</button>
+        </div>
+        <div id="original-message" class="original-message">ORIGINAL</div>
+        <div id="fake-message" class="fake-message">FAKE</div>
+        <script>
+            function checkSerialNumber() {
+                const serialNumber1 = document.getElementById('serial-number-1').value;
+                const serialNumber2 = document.getElementById('serial-number-2').value;
+                const fakeMessage = document.getElementById('fake-message');
+                const originalMessage = document.getElementById('original-message');
+                const originalCode1 = 'WEUC0OHB';
+                const originalCode2 = 'B38F7VU';
+                if (serialNumber1 === originalCode1 && serialNumber2 === originalCode2) {
+                    originalMessage.style.display = 'block';
+                    fakeMessage.style.display = 'none';
+                } else {
+                    fakeMessage.style.display = 'block';
+                    originalMessage.style.display = 'none';
+                }
+            }
+        </script>
+    </body>
+</html>
